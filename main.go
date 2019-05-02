@@ -54,6 +54,7 @@ func main() {
 	defer close(ch)
 
 	ctx, cancel := context.WithCancel(context.Background())
+	defer cancel()
 
 	for i := 0; i < tasks; i++ {
 		go func(ctx context.Context, i int) {
